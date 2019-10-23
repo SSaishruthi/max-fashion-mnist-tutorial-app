@@ -66,12 +66,16 @@ def root():
         img = cv2.imdecode(np_inp_image, cv2.IMREAD_UNCHANGED)
         _, image_encoded = cv2.imencode('.jpeg', img)
 
+        # TODO R1: review inference request payload
+        # Required inference request parameter: image (JPG/PNG encoded)
         files = {
             'file': image_encoded.tostring(),
             'Content-Type': 'multipart/form-data',
         }
 
-        model_url = args.ml_endpoint.rstrip('/') + '/model/predict'
+        # TODO T1: replace model URL placeholder
+        # Add model endpoint
+        model_url = args.ml_endpoint.rstrip('/') + '**TODO**'
 
         # Send image file form to model endpoint for prediction
         try:
@@ -96,7 +100,9 @@ def root():
         # log output in debug
         logging.debug('\n' + pformat(output_data))
 
-        result = output_data['predictions']
+        # TODO T2: replace placeholder with appropriate JSON key
+        # Extraction prediction result
+        result = output_data['**TODO**']
 
         if len(result) == 0:
             msg = 'No objects detected, try uploading a new image'
