@@ -34,7 +34,7 @@ TODO 2: Update model URL
 
 TODO 3: Update code to extract prediction from the model response. 
         _NOTE_ To know the response structure, explore model microservice API.
-        
+
 
 ## 4. Start the WebApp
 
@@ -59,6 +59,10 @@ If you want to use a different port or are running the model API at a different 
 ```
 $ python app.py --port=[new port] --model=[endpoint url including protocol and port]
 ```
+
+## 5. Test the WebApp
+
+Upload one of the images in the `samples/` directory to the WebApp in your browser to test your application. 
 
 # Reference
 
