@@ -1,44 +1,14 @@
 # MAX Fashion MNIST Web App - Python
 
-Python web app to consume MAX-Fashion-MNIST microservice.
+In this tutorial, we will build a Python web app to integrate the MAX-Fashion-MNIST microservice with a user-friendly interface.
 
-# Requirements
-
-1. Pre-processing code to convert input to requirement format that can be used as request payload.
-2. Update post request parameters (e.g. files, model URL).
-3. Post-processing code to extract prediction and send back to UI in preferred format.
-
-# Complete **TODO**
-
-This repository contains **TODOs** meant to be completed.
-
-TODO 1: Review how post request is structured.
-
-TODO 2: Update model URL
-
-TODO 3: Update code to extract prediction from the model response. 
-        _NOTE_ To know the response structure, explore model microservice API.
-
-
-A working version of the app without the **TODOs** can be found here: 
-
-# Steps
-
-## Run Locally
-
-1. [Start the Model API](#1-start-the-model-api)
-2. [Get a local copy of the repository](#2-get-a-local-copy-of-the-repository)
-3. [Install dependencies](#3-install-dependencies)
-4. [Start the web app server](#4-start-the-web-app-server)
-5. [Configure ports (Optional)](#5-configure-ports-optional)
-
-### Start the Web App
-
-#### 1. Start the Model API
+# Instructions
+## 1. Start the MAX-Fashion-MNIST model API
 
 Deploy the fashion MNIST model using the steps provided here: https://github.com/SSaishruthi/max-fashion-mnist#build-the-model-docker-image
 
-#### 2. Get a local copy of the repository
+
+## 2. Download/Clone the WebApp template (this repository)
 
 Clone the web app repository locally. In a terminal, run the following command:
 
@@ -52,15 +22,27 @@ Change directory into the repository base folder:
 $ cd max-fashion-mnist-tutorial-app
 ```
 
-#### 3. Install dependencies
+## 3. Complete the WebApp code
+
+The Python code to run this web applicaton template is contained in the `app.py` file. This file contains **TODO**-comments and intructions that need to be completed to adjust this webapp template for our MAX-Fashion-MNIST model.
+
+_NOTE: The solution can be found here: [LINK-HERE]._
+
+TODO 1: Review how post request is structured.
+
+TODO 2: Update model URL
+
+TODO 3: Update code to extract prediction from the model response. 
+        _NOTE_ To know the response structure, explore model microservice API.
+        
+
+## 4. Start the WebApp
 
 Before running this web app you must install its dependencies:
 
 ```
 $ pip install -r requirements.txt
 ```
-
-#### 4. Start the web app server
 
 You then start the web app by running:
 
@@ -70,7 +52,7 @@ $ python app.py
 
 You can then access the web app at: [`http://localhost:8090`](http://localhost:8090)
 
-#### 5. Configure ports (Optional)
+**Configuring ports**
 
 If you want to use a different port or are running the model API at a different location you can change them with command-line options:
 
