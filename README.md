@@ -13,7 +13,9 @@ Python web app to consume MAX-Fashion-MNIST microservice.
 This repository contains **TODOs** meant to be completed.
 
 TODO 1: Review how post request is structured.
+
 TODO 2: Update model URL
+
 TODO 3: Update code to extract prediction from the model response. 
         _NOTE_ To know the response structure, explore model microservice API.
 
