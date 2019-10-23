@@ -17,7 +17,7 @@ limitations under the License.
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MAX Object Detector (Lite)</title>
+    <title>MAX fashion MNIST</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico"/>
 
@@ -55,7 +55,7 @@ limitations under the License.
                                 <div class="form-group">
                                      <input id="file-input" type="file" name="file" accept=".png, .jpg, .jpeg" />
                                 </div>
-                                <button id="file-submit" type="submit" class="btn btn-primary">Detect Objects</button>
+                                <button id="file-submit" type="submit" class="btn btn-primary">Classify</button>
                             </form>
                          </div>
                      </div>
@@ -65,7 +65,7 @@ limitations under the License.
                              <div class="panel-title">Prediction Result</div>
                          </div>
                          <div class="panel-body">
-                             <div>Predicted cloth item is: <b> {{ result_1 }} </b></div>
+                             <div>Predicted class of the cloth item: <b> {{ result_1 }} </b></div>
                          </div>
                      </div>
                 </div>
