@@ -5,7 +5,41 @@ In this tutorial, we will build a Python web app to integrate the MAX-Fashion-MN
 # Instructions
 ## 1. Start the MAX-Fashion-MNIST model API
 
-Deploy the fashion MNIST model using the steps provided here: https://github.com/SSaishruthi/max-fashion-mnist#build-the-model-docker-image
+Deploy the fashion MNIST model using the steps provided here: [LINK TO OTHER TUTORIAL]
+
+You can choose to either..
+
+- Start the model API locally
+    
+    For example, by running the Docker image on your computer.
+
+    ```bash
+    docker run -it -p 5000:5000 IMAGE_NAME
+    ```
+
+    This will host your model API on localhost port 5000.
+    
+    ```bash
+    # API main landing page
+    http://localhost:5000
+
+    # model API prediction endpoint
+    http://localhost:5000/model/predict
+    ```
+
+- Use the deployed instance on Kubernetes
+    
+    At the end of the Kubernetes tutorial, we were able to access the deployment with an IP address and port number. This will take the format below.
+
+    ```bash
+    # API main landing page
+    http://IP_ADDRESS:PORT
+
+    # model API prediction endpoint
+    http://IP_ADDRESS:PORT/model/predict
+    ```
+
+With a running instance of the model (and knowledge of the endpoint) we can now design the webapp to work with it.
 
 
 ## 2. Download/Clone the WebApp template (this repository)
@@ -13,10 +47,10 @@ Deploy the fashion MNIST model using the steps provided here: https://github.com
 Clone the web app repository locally. In a terminal, run the following command:
 
 ```
-$ git clone 
+$ git clone [LINK TO THIS REPOSITORY]
 ```
 
-Change directory into the repository base folder:
+Navigate into the repository base folder:
 
 ```
 $ cd max-fashion-mnist-tutorial-app
@@ -28,12 +62,26 @@ The Python code to run this web applicaton template is contained in the `app.py`
 
 _NOTE: The solution can be found here: [LINK-HERE]._
 
-TODO 1: Review how post request is structured.
+Find the `TODO` comments in the `app.py` code (use CMD-F or CTRL-F). You will find three hits.
 
-TODO 2: Update model URL
+- `TODO R1`
+  
+    Review how the post request is structured. The image uploaded by the user will be encoded in the `files` variable in the webapp code. Next, the `files` variable with the encoded image will be forwarded to the prediction endpoint of the MAX-Fashion-MNIST model.
 
-TODO 3: Update code to extract prediction from the model response. 
-        _NOTE_ To know the response structure, explore model microservice API.
+    No action is required here.
+
+- `TODO T1`
+
+    This TODO requires specification of the model endpoint. The `args.ml_endpoint.rstrip('/')` command returns the base url of the MAX-Fashion-MNIST model API, e.g. `http://localhost:5000` or the Kubernetes `http://[IP-ADDRESS]:[PORT]` structure. The suffix we still need to add here is the model endpoint, `/model/predict`. 
+    
+    Update the code to reflect this.
+
+- `TODO T2`: Update code to extract prediction from the model response. 
+
+    To know the response structure, explore the source code for the model microservice API.
+
+    Typically, for models wrapped with the MAX-framework, the prediction results in the output data dictionary can be accessed by the `predictions` key. 
+
 
 
 ## 4. Start the WebApp
@@ -44,21 +92,14 @@ Before running this web app you must install its dependencies:
 $ pip install -r requirements.txt
 ```
 
-You then start the web app by running:
+You can then start the web app by running the command below. Replace the `[WEBAPP PORT]` with an unused port (e.g `8090`). Next, replace `[MAX-FASHION-MNIST BASE URL]` with the `http://[IP-ADDRESS]:[PORT]` address that hosts the MAX-Fashion-MNIST model (see step 1).
 
 ```
-$ python app.py
+$ python app.py --port=[WEBAPP PORT] --ml-endpoint=[MAX-FASHION-MNIST BASE URL]
 ```
 
-You can then access the web app at: [`http://localhost:8090`](http://localhost:8090)
+Upon completion, access the web app at `http://localhost:[WEPAPP PORT]`.
 
-**Configuring ports**
-
-If you want to use a different port or are running the model API at a different location you can change them with command-line options:
-
-```
-$ python app.py --port=[new port] --model=[endpoint url including protocol and port]
-```
 
 ## 5. Test the WebApp
 
